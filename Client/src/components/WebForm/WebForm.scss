@@ -1,0 +1,486 @@
+div.webForm {
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+  animation: slideIn 0.5s ease-out;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  h2.webFormTop {
+    font-size: 1.5rem;
+    color: #2d3748;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-weight: 600;
+  }
+
+  form.webFormMain {
+    div.webFormField {
+      position: relative;
+      margin-bottom: 2rem;
+
+      label.webFormFieldLabel {
+        display: block;
+        margin-bottom: 0.5rem;
+        text-align: right;
+        margin-right: 15%;
+        font-weight: 500;
+        color: #4a5568;
+
+        span.required {
+          color: #e53e3e;
+          margin-right: 4px;
+        }
+      }
+
+      select.webFormFieldBasic,
+      input.webFormFieldBasic,
+      textarea.webFormFieldBasic {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        border-radius: 8px;
+        font-size: 1rem;
+      }
+
+      input.webFormFieldBasic,textarea.webFormFieldBasic{
+        max-width: 300px;
+      }
+
+      textarea.webFormFieldBasic {
+        min-height: 120px;
+        resize: vertical;
+        line-height: 1.5;
+      }
+
+      select.webFormFieldBasic{
+        max-width: 350px;
+      }
+
+      select.webFormFieldBasic, input.webFormFieldBasic{
+        color: rgb(43 166 255 / 72%);
+      }
+
+      select.webFormFieldNoError,
+      input.webFormFieldNoError,
+      textarea.webFormFieldNoError {
+        transition: all 0.3s ease;
+        border: 2px solid #e2e8f0;
+        background: #f8fafc;
+
+        &::placeholder {
+          color: #a0aec0;
+          transition: opacity 0.3s ease;
+        }
+
+        &:hover {
+          border-color: #cbd5e0;
+        }
+
+        &:focus {
+          outline: none;
+          border-color: #4299e1;
+          background: #fff;
+          box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.15);
+
+          &::placeholder {
+            opacity: 0.5;
+          }
+        }
+      }
+
+      select.webFormFieldInError,
+      input.webFormFieldInError,
+      textarea.webFormFieldInError {
+        border-color: #dc2626;
+        background-color: rgba(229, 62, 62, 0.05);
+        transition: all 0.3s ease, background-color 0.2s ease;
+        animation: shake 0.4s ease-in-out;
+
+        &:focus {
+          outline: none;
+          border-color: #5730e7;
+          box-shadow: 0 0 0 3px rgba(227, 15, 217, 0.15);
+        }
+
+        &::placeholder {
+          color: rgba(220, 38, 38, 0.5);
+        }
+      }
+
+      div.webFormFieldCenter {
+        position: relative;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+      
+        input.webFormFieldPassword {
+          padding-right: 40px;
+        }
+      
+        button.webFormFieldPasswordToggle {
+          position: relative;
+          background: none;
+          border: none;
+          padding: 4px;
+          bottom: 2.2rem;
+          left: 10rem;
+          &:hover {
+            color: #4A5568;
+          }
+      
+          &:focus {
+            outline: none;
+            color: #4A5568;
+          }
+      
+          span.webFormFieldPasswordToggleIcon{
+            width: 20px;
+            height: 20px;
+            transition: transform 0.2s ease;
+            animation: iconRotate 2s ease ;
+          }
+      
+          &:hover span.webFormFieldPasswordToggleIcon {
+            transform: scale(1.1);
+          }
+      
+          &:active span.webFormFieldPasswordToggleIcon {
+            transform: scale(0.95);
+          }
+        }
+      }
+
+      div.webFormFieldError {
+        position: relative;
+        margin-top: 0.5rem;
+        div.webFormFieldErrorDesc {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          padding: 0.8rem 1rem;
+          border-radius: 6px;
+          background: rgba(229, 62, 62, 0.1);
+          color: #dc2626;
+          font-size: 0.8rem;
+          font-weight: 500;
+          animation: errorSlideIn 0.3s ease-out,
+            errorPulse 2s ease-in-out infinite;
+          backdrop-filter: blur(4px);
+          max-width: 300px;
+          border: 1px solid rgba(229, 62, 62, 0.2);
+          box-shadow: 0 2px 4px rgba(229, 62, 62, 0.1);
+          margin-right: 16%;
+          &::before {
+            content: "⚠️";
+            font-size: 0.75rem;
+          }
+
+          &::after {
+            content: "";
+            position: absolute;
+            top: -5px;
+            right: 10px;
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-bottom: 5px solid rgba(229, 62, 62, 0.1);
+          }
+        }
+      }
+    }
+
+    button.webFormBtn {
+      max-width: 345px;
+      width: 100%;
+      padding: 1.3rem;
+      border: none;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #4299e1, #3182ce);
+      color: white;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      margin-top: 2rem;
+      position: relative;
+      overflow: hidden;
+
+      &:hover:not(.webFormBtnInDisabled) {
+        background: linear-gradient(135deg, #3182ce, #2b6cb0);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11),
+          0 1px 3px rgba(0, 0, 0, 0.08);
+      }
+
+      &:active:not(.webFormBtnInDisabled) {
+        transform: translateY(1px);
+      }
+
+      &.webFormBtnInDisabled {
+        background: linear-gradient(135deg, #cbd5e0, #a0aec0);
+        opacity: 0.7;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        background-image: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.3) 10%,
+          transparent 10.01%
+        );
+        background-repeat: no-repeat;
+        background-position: 50%;
+        transform: scale(10, 10);
+        opacity: 0;
+        transition: transform 0.5s, opacity 1s;
+      }
+
+      &:active::after {
+        transform: scale(0, 0);
+        opacity: 0.3;
+        transition: 0s;
+      }
+
+      &.webFormBtnInLoading {
+        position: relative;
+        pointer-events: none;
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.2),
+            transparent
+          );
+          animation: loading 1.5s infinite;
+        }
+      }
+    }
+
+    div.webFormBottom {
+      margin-top: 2rem;
+      text-align: center;
+      overflow: hidden;
+      border-radius: 8px;
+      animation: fadeIn 0.5s ease-out;
+
+      img.webFormImg {
+        max-width: 30%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+
+        &:hover {
+          transform: scale(1.02);
+        }
+      }
+    }
+  }
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  Animation ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+// Goal : To add a fade-in effect.
+//        Gradual appearance of objects on the screen, such as buttons or text.
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Goal : To add a slide-in effect.
+//        Display error messages interactively.
+
+@keyframes errorSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Goal : To add a pulse effect.
+//        Subtly highlighting elements,
+//        such as subtly emitted error messages.
+
+@keyframes errorPulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+// Goal : To add a loading effect.
+//        A loading animation that shows
+//        that the page or resource is loading.
+
+@keyframes loading {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+// Goal : To add a slide-In effect.
+//        Displaying elements smoothly from their place.
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Goal : To add a rotate effect.
+//        Animation can be used to display icons that rotate and light up when they appear, 
+//        for example, when you click a button, or to display a loading icon 
+//        that will catch the user's attention.
+
+@keyframes iconRotate {
+  from {
+    transform: rotate(-180deg);
+    opacity: 0;
+  }
+  to {
+    transform: rotate(0);
+    opacity: 1;
+  }
+}
+
+// Goal : To add a shake effect.
+//        A jolt of elements such as form fields or icons
+//        that hint at an error.
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  Responsive ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+@media (max-width: 768px) {
+  div.webForm form.webFormMain {
+    div.webFormField {
+      margin-bottom: 1.3rem;
+
+      select.webFormFieldBasic{
+        max-width: 320px;
+      }
+     
+      input.webFormFieldBasic,textarea.webFormFieldBasic{
+        max-width: 300px;
+      }
+      
+      select.webFormFieldBasic,
+      input.webFormFieldBasic,
+      textarea.webFormFieldBasic {
+        font-size: 0.7rem;
+      }
+      div.webFormFieldError div.webFormFieldErrorDesc {
+        margin-right: 16.5%;
+        max-width: 300px;
+        font-size: 0.7rem;
+        padding: 0.6rem 0.8rem;
+      }
+    }
+
+    button.webFormBtn {
+      padding: 1.3rem;
+      max-width: 320px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  div.webForm form.webFormMain {
+    div.webFormField {
+      margin-bottom: 1.5rem;
+
+      label.webFormFieldLabel {
+        margin-right: 0%;
+      }
+
+      select.webFormFieldBasic{
+        max-width: 310px;
+      }
+
+      input.webFormFieldBasic,textarea.webFormFieldBasic{
+        max-width: 280px;
+      }
+
+      select.webFormFieldBasic,
+      input.webFormFieldBasic,
+      textarea.webFormFieldBasic {
+        font-size: 0.6rem;
+      }
+
+      input.webFormFieldBasic{
+        display: flex;
+      }
+
+      button.webFormFieldPasswordToggle {
+        left: 9rem !important;
+      }
+
+      div.webFormFieldError div.webFormFieldErrorDesc {
+        margin-right: 8%;
+        max-width: 290px;
+        font-size: 0.6rem;
+        padding: 0.4rem 0.6rem;
+      }
+    }
+
+    
+    button.webFormBtn {
+      padding: 1.3rem;
+      max-width: 310px;
+    }
+  }
+}

@@ -1,0 +1,119 @@
+[
+  {
+    "ContainingType": "Server.Controllers.AuthController",
+    "Method": "GenerateToken",
+    "RelativePath": "api/Auth/GenerateToken",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "role",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Server.Controllers.RegisterUserController",
+    "Method": "RegisterUserGetUserByTaz",
+    "RelativePath": "api/RegisterUser/RegisterUserGetUserByTaz",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "registerUserBasic",
+        "Type": "Server.Models.Entity.RegisterUserBasic",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Server.Controllers.RegisterUserController",
+    "Method": "RegisterUserInsert",
+    "RelativePath": "api/RegisterUser/RegisterUserInsert",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "registerUser",
+        "Type": "Server.Models.Entity.RegisterUser",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Server.Controllers.TransactionController",
+    "Method": "TransactionActionDelete",
+    "RelativePath": "api/Transaction/TransactionActionDelete",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "transactionActionID",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Server.Controllers.TransactionController",
+    "Method": "TransactionActionInsert",
+    "RelativePath": "api/Transaction/TransactionActionInsert",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "transactionActionInsert",
+        "Type": "Server.Models.Entity.TransactionActionInsert",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Server.Controllers.TransactionController",
+    "Method": "TransactionActionUpdate",
+    "RelativePath": "api/Transaction/TransactionActionUpdate",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "taz",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "transactionActionBasic",
+        "Type": "Server.Models.Entity.TransactionActionBasic",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Server.Controllers.TransactionController",
+    "Method": "TransactionHistoryGetTransactionHistoryByUserID",
+    "RelativePath": "api/Transaction/TransactionHistoryGetTransactionHistoryByUserID",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userID",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

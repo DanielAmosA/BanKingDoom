@@ -1,0 +1,183 @@
+@use '../../styles/Variables.scss' as *;
+
+// The home page.
+div.home {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background: linear-gradient(120deg, $primary, $primaryContent);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  header.homeHeader {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+
+    div.homeHeaderCarousel {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      position: absolute;
+
+      div.sentence {
+        opacity: 0;
+        transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+        font-size: 24px;
+        font-weight: bold;
+        position: absolute;
+        transform: translateY(20px);
+
+        &.active {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    }
+  }
+
+  main.homeCenter {
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 80%;
+
+    section.homeCenterSec {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 10px;
+      width: 40%;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s, box-shadow 0.3s;
+      margin: 10px;
+
+      &:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+      }
+
+      img.homeCenterSecImg {
+        width: 100%;
+        max-width: 300px;
+        margin-top: 15px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        animation: float 3s infinite ease-in-out;
+      }
+
+      button.homeCenterSecBtn {
+        background: $secondary;
+        border: none;
+        padding: 10px 20px;
+        margin-top: 15px;
+        font-size: 18px;
+        border-radius: 5px;
+        transition: background 0.3s, transform 0.2s;
+
+        &:hover {
+          background: $secondaryContent;
+          transform: scale(1.1);
+        }
+
+        &:active {
+          transform: scale(0.95);
+        }
+      }
+    }
+  }
+
+  footer.homeBottom {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+
+    img.homeBottomImg {
+      width: 20%;
+      max-width: 150px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      transition: transform 1s ease-in-out;
+
+      &:hover {
+        transform: scale(1.1) rotate(5deg);
+      }
+    }
+  }
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  Animation ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+// Goal: Create a "hover" effect where the element moves
+//        up and down smoothly.
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  Responsive ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+@media (max-width: 768px) {
+  div.home {
+    header.homeHeader {
+      height: 90px;
+    }
+    main.homeCenter {
+      margin-top: 45px;
+
+      section.homeCenterSec {
+        padding: 16px;
+        width: 35%;
+      }
+    }
+
+    footer.homeBottom {
+      width: 95%;
+      margin-top: 45px;
+
+      img.homeBottomImg {
+        width: 18%;
+        max-width: 140px;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  div.home {
+    header.homeHeader {
+      height: 80px;
+    }
+    main.homeCenter {
+      margin-top: 40px;
+
+      section.homeCenterSec {
+        padding: 10px;
+        width: 30%;
+      }
+    }
+
+    footer.homeBottom {
+      width: 90%;
+      margin-top: 40px;
+
+      img.homeBottomImg {
+        width: 15%;
+        max-width: 130px;
+      }
+    }
+  }
+}

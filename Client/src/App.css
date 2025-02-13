@@ -1,0 +1,12 @@
+div.App {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+
+  div.page {
+    min-height: 60vh;
+    margin-bottom: 2vh;
+    padding-bottom: 2vh;
+  }
+
+}

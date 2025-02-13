@@ -1,0 +1,61 @@
+@use '../../styles/Variables.scss' as *;
+
+div.header {
+  width: 90%;
+  margin: 1rem auto;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+
+  div.headerTop {
+    background-color: #f5f5f5;
+    padding: 1rem;
+
+    h2.headerTopTitle {
+      font-size: 1.5rem;
+      font-weight: bold;
+      background: linear-gradient(45deg, $primary, $primaryContent);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+
+  div.headerCenter {
+    padding: 1rem;
+
+    img.headerCenterImg {
+      width: 8rem;
+      height: auto;
+      border-bottom: 1px solid #ddd;
+    }
+
+  }
+
+  div.headerBottom {
+    background-color: #f5f5f5;
+    padding: 1rem;
+    text-align: center;
+  }
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  Responsive ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+@media (max-width: 768px) {
+  div.header {
+    div.headerTop h2.headerTopTitle {
+      font-size: 1.2rem;
+    }
+
+  }
+}
+
+@media (max-width: 480px) {
+  div.header {
+    div.headerTop h2.headerTopTitle {
+      font-size: 1rem;
+    }
+  }
+}

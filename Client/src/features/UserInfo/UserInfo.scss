@@ -1,0 +1,108 @@
+@use '../../styles/Variables.scss' as *;
+
+div.userInf {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background: linear-gradient(135deg, $primaryContent, $primary);
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1s ease-in-out;
+    margin-bottom: 20px;
+  
+    img.userInfImg {
+      background-color: $primary;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 3px solid #ffffff;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      margin-bottom: 15px;
+      animation: bounce 2s infinite;
+    }
+  
+    h2.userInfTitle {
+      font-size: 18px;
+      font-weight: bold;
+      color: #ffffff;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+      line-height: 1.5;
+  
+      span.userInfSubTitle {
+        color: $secondaryContent ;
+        text-decoration: underline;
+      }
+    }
+  
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    }
+  }
+  
+  // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  Animation ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  // Goal : To present the element in a soft and pleasant way,
+  //        so that it "enters" the screen in a gradual way.
+ //         Create a pleasant and aesthetic entry experience to the element.
+ //         Make the element look "smooth" and not appear abruptly.
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+    // Goal : To add a lively, bouncy sense of movement to an element 
+    //        (usually suitable for images or buttons):
+    //        Add life to an element, especially for images or buttons that invite interaction.
+    //        Convey a sense of energy and magic.
+
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  Responsive ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+  @media (max-width: 768px) {
+    div.userInf {
+      padding: 15px;
+  
+      img.userInfImg{
+        width: 80px;
+        height: 80px;
+      }
+  
+      h2.userInfTitle {
+        font-size: 16px;
+      }
+    }
+  }
+  
+  @media (max-width: 480px) {
+    div.userInf  {
+      padding: 10px;
+  
+      img.userInfImg {
+        width: 60px;
+        height: 60px;
+      }
+  
+      h2.userInfTitle{
+        font-size: 14px;
+      }
+    }
+  }

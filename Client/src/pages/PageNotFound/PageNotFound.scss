@@ -1,0 +1,141 @@
+@use '../../styles/Variables.scss' as *;
+
+div.pageNotFound {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(120deg, $primary, $primaryContent);
+  color: #fff;
+  font-family: "Heebo", sans-serif;
+  text-align: center;
+  overflow: hidden;
+
+  h1.pageNotFoundTitle {
+    font-size: 6rem;
+    margin: 0;
+    animation: sparkle 3s infinite ease-in-out;
+  }
+
+  p.pageNotFoundSubTitle {
+    font-size: 1.5rem;
+    margin: 1rem 0;
+    animation: fadeIn 2s ease-in-out;
+  }
+
+  button.pageNotFoundBtn {
+    padding: 0.75rem 1.5rem;
+    margin-top: 1.5rem;
+    font-size: 1.25rem;
+    color: $primaryContent;
+    background: #fff;
+    border: 2px solid #fff;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    animation: fadeIn 2.5s ease-in-out;
+
+    &:hover {
+      background: $secondaryContent;
+      color: #fff;
+      border-color: $primaryContent;
+      transform: scale(1.1);
+    }
+  }
+
+  img.pageNotFoundImg {
+    margin-top: 2rem;
+    width: 300px;
+    animation: float 3s infinite ease-in-out;
+  }
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  Responsive ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+@media (max-width: 768px) {
+  div.pageNotFound {
+    padding: 1rem;
+
+    h1.pageNotFoundTitle {
+      font-size: 4rem;
+    }
+
+    p.pageNotFoundSubTitle {
+      font-size: 1.2rem;
+    }
+
+    button.pageNotFoundBtn {
+      font-size: 1rem;
+    }
+
+    img.pageNotFoundImg {
+      width: 200px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  div.pageNotFound {
+    padding: 0.8rem;
+    h1.pageNotFoundTitle {
+      font-size: 3.6rem;
+    }
+
+    p.pageNotFoundSubTitle {
+      font-size: 1rem;
+    }
+
+    button.pageNotFoundBtn {
+      font-size: 0.8rem;
+    }
+
+    img.pageNotFoundImg {
+      width: 180px;
+    }
+  }
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  Animation ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+// Goal: Create a "hover" effect where the element moves
+//        up and down smoothly.
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+// Goal : Subtly introduce an element into the screen,
+//        using a top-to-bottom fading effect.
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Goal : Create a sparkling glow effect
+//        for text using alternating shadows.
+
+@keyframes sparkle {
+  0%,
+  100% {
+    text-shadow: 0 0 10px #fff, 0 0 20px $primaryContent, 0 0 30px $secondaryContent,
+      0 0 40px $secondaryContent;
+  }
+  50% {
+    text-shadow: 0 0 20px #fff, 0 0 30px $secondaryContent, 0 0 40px $primaryContent,
+      0 0 50px $secondaryContent;
+  }
+}

@@ -1,0 +1,60 @@
+@use '../../styles/Variables.scss' as *;
+
+div.menu {
+  padding: 0 0.3vw;
+  border-radius: 20px;
+  font-size: 1.3rem;
+  overflow: hidden;
+  perspective: 1px;
+  border-collapse: separate;
+  display: inline-flex;
+  gap: 1.5vw;
+  padding: 20px;
+
+  div.menuItem {
+    &:hover {
+      background: linear-gradient(to right, $secondary, #ffff);
+      border-radius: 30px;
+      padding: 0px 10px;
+    }
+  
+    a {
+      color: $primary;
+      text-decoration: none;
+  
+      &.active {
+        background-color: $secondary;
+        color: white;
+        border-radius: 30px;
+        padding: 5px 10px;
+      }
+    }
+  }
+}
+
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  Responsive ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+@media (max-width: 768px) {
+  div.menu {
+    font-size: 1rem;
+    flex-direction: column;
+    padding: 5px;
+
+    nav.menuItem{
+      padding: 10px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  div.menu {
+    font-size: 0.8rem;
+    flex-direction: column;
+    padding: 3px;
+
+    nav.menuItem{
+      padding: 8px;
+    }
+  }
+}

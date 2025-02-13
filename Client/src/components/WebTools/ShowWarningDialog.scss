@@ -1,0 +1,33 @@
+@use "../../styles/webDialog.scss" as *;
+
+div.dialogCustomError {
+  div.dialogCustomMain {
+    border: 2px solid #ff4d4d;
+    box-shadow: 0px 0px 30px rgba(255, 0, 0, 0.7);
+
+    h3.titleDialog {
+      color: #ff4d4d;
+    }
+
+    div.btnsDialog {
+      button.btnDialog {
+        background: #ff4d4d;
+        &:hover {
+          box-shadow: 0px 0px 15px rgba(255, 77, 77, 0.7);
+        }
+      }
+    }
+
+    div.dialogBottom {
+      border: 2px solid #d29074;
+
+      img.dialogImg {
+        box-shadow: 0 4px 15px rgba(255, 77, 77, 0.6);
+
+        &:hover {
+          box-shadow: 0 8px 20px rgba(255, 77, 77, 0.9);
+        }
+      }
+    }
+  }
+}

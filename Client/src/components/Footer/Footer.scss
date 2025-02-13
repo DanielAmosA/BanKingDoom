@@ -1,0 +1,52 @@
+@use '../../styles/Variables.scss' as *;
+
+footer.footer {
+  background-color:$primary;
+  color: white;
+  text-align: center;
+  padding: 5px 0;
+  height: 10vh;
+  width: 90%;
+  margin: auto;
+
+    div.footerMain {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 15px;
+      
+      p.footerText {
+        margin: 0;
+        font-size: 1.3rem;
+      }
+    }   
+  }
+
+  // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  Responsive ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  @media (max-width: 768px) {
+    footer.footer {
+      div.footerMain{
+        padding: 10px;
+      }
+
+      p.footerText{
+        font-size: 1.2rem;
+      }
+  
+    }
+  }
+  
+  @media (max-width: 480px) {
+    footer.footer {
+      div.footerMain{
+        padding: 12px;
+      }
+
+      p.footerText{
+        font-size: 1.1rem;
+      }
+  
+    }
+  }

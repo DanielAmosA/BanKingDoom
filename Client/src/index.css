@@ -1,0 +1,15 @@
+:root {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  background-image: url("./assets/images/site/back.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  direction: rtl;
+
+}
+
+button , a {
+  cursor: pointer;
+}

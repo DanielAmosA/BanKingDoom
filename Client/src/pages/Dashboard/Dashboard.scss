@@ -1,0 +1,92 @@
+@use '../../styles/Variables.scss' as *;
+
+div.dashboard {
+  border-radius: 10px;
+  width: 90%;
+  margin: 1rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0px;
+  background: linear-gradient(to bottom, rgb(245 245 245), #ffffff);
+  div.dashboardFilterBtns {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+
+    button.dashboardFilterBtn {
+      background: linear-gradient(90deg, $secondary, $secondaryContent);
+      border: none;
+      border-radius: 8px;
+      padding: 10px 20px;
+      color: #fff;
+      font-weight: bold;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s, box-shadow 0.2s;
+
+      &:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      &.dashboardFilterBtnActive {
+        background: linear-gradient(90deg, $primary, $primaryContent);
+        color: #fff;
+      }
+    }
+  }
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  Animation ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+// Goal : To create a "pulse" effect for an object by changing the box-shadow around it.
+//        The animation creates the feeling of an object "breathing"
+//         or "pulsing" by changing the shadow in a cyclical manner
+
+@keyframes pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 5px rgba(255, 0, 150, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(255, 0, 150, 1);
+  }
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  Responsive ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+@media (max-width: 768px) {
+  div.dashboard {
+    div.dashboardFilterBtns {
+      flex-direction: column;
+
+      button.dashboardFilterBtn {
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+    img.dashboardBtmImg {
+      max-width: 100%;
+      margin-top: 10px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  div.dashboard {
+    div.dashboardFilterBtns {
+      flex-direction: column;
+
+      button.dashboardFilterBtn {
+        width: 90%;
+        text-align: center;
+      }
+    }
+
+    img.dashboardBtmImg {
+      max-width: 90%;
+      margin-top: 8px;
+    }
+  }
+}

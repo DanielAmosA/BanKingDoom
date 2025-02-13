@@ -1,0 +1,178 @@
+@use "../../styles/Variables.scss" as *;
+
+div.mainKindLoadData {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 10px;
+  animation: fadeIn 1s ease-in-out;
+
+  div.mainKindLoadDataMain {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    max-width: 600px;
+    margin: auto;
+    animation: fadeIn 1.2s ease-in-out;
+
+    div.mainKindLoadDataCenter {
+      padding: 20px;
+      border: 2px solid #ccc;
+      border-radius: 12px;
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 1.5s ease-in-out;
+
+      &:hover {
+        transform: translateY(-5px);
+        transition: transform 0.3s ease;
+      }
+
+      p.mainKindLoadDataTitle {      
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 20px;
+
+        &:hover {
+          animation: pulse 0.5s infinite;
+        }
+
+        &.waitTitle{
+          animation: wait 1.5s ease-in-out infinite;
+        }
+
+        &.errorTitle{
+          animation: error 1.5s ease-in-out infinite;
+        }
+      }
+
+      img.mainKindLoadDataImg {
+        width: 100%;
+        max-width: 200px;
+        border-radius: 8px;
+        &:hover {
+          animation: pulse 0.5s infinite;
+        }
+      }
+    }
+  }
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  Responsive ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+@media (max-width: 768px) {
+  div.mainKindLoadData {
+    padding: 20px;
+
+    div.mainKindLoadDataMain {
+      div.mainKindLoadDataCenter {
+        padding: 15px;
+
+        p.mainKindLoadDataTitle {
+          font-size: 1.2rem;
+        }
+
+        img.mainKindLoadDataImg {
+          max-width: 150px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  div.mainKindLoadData {
+    padding: 10px;
+
+    div.mainKindLoadDataMain {
+      div.mainKindLoadDataCenter {
+        padding: 10px;
+
+        p.mainKindLoadDataTitle {
+          font-size: 1rem;
+        }
+
+        img.mainKindLoadDataImg {
+          max-width: 100px;
+        }
+      }
+    }
+  }
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  Animation ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+//Goal: Make elements appear gradually 
+//      with a bottom-up movement.
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Goal: Create a "pulse" effect where the element swells slightly 
+//       and returns to its original state.
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+//Goal: To present an error in a way that attracts attention,
+//      with a "shaking" effect to the sides.
+
+@keyframes error {
+  0% {
+    color: #dc3545;
+    transform: translateX(0);
+  }
+  25% {
+    color: #d71e30;
+    transform: translateX(-5px);
+  }
+  50% {
+    color: #ae0819;
+    transform: translateX(5px);
+  }
+  75% {
+    color: #840e1a;
+    transform: translateX(-5px);
+  }
+  100% {
+    color: #901a26;
+    transform: translateX(0);
+  }
+}
+
+// Goal: Display a waiting message prominently, 
+//       with changing colors and an expanding effect.
+
+@keyframes wait {
+  0% {
+    color: #288c8f;
+    transform: scale(1);
+  }
+  50% {
+    color: #55dce1;
+    transform: scale(1.1);
+  }
+  100% {
+    color: #14b1b7;
+    transform: scale(1);
+  }
+}

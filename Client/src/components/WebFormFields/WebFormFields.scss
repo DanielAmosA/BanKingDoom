@@ -1,0 +1,143 @@
+div.webFormField {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  label.webFormFieldLabel {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #4a4a4a;
+    margin-bottom: 8px;
+    transition: color 0.3s ease-in-out;
+
+    &:hover {
+      color: #5b21b6;
+    }
+  }
+
+  input.webFormFieldInput,
+  select.webFormFieldInput {
+    padding: 10px;
+    font-size: 1rem;
+    border: 2px solid #cbd5e1;
+    border-radius: 8px;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+
+    &:focus {
+      border-color: #7c3aed;
+      box-shadow: 0 0 10px rgba(124, 58, 237, 0.5);
+    }
+
+    &:hover {
+      border-color: #5b21b6;
+    }
+  }
+
+  input.webFormFieldInputInError,
+  select.webFormFieldInputInError {
+    border-color: #ef4444;
+    animation: glowError 1s infinite alternate;
+  }
+
+  div.webFormFieldErrors {
+    animation: shake 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0.8rem 1rem;
+    border-radius: 6px;
+    background: rgba(229, 62, 62, 0.1);
+    color: #dc2626;
+    font-size: 0.8rem;
+    font-weight: 500;
+    animation: errorSlideIn 0.3s ease-out, errorPulse 2s ease-in-out infinite;
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(229, 62, 62, 0.2);
+    box-shadow: 0 2px 4px rgba(229, 62, 62, 0.1);
+    &::before {
+      content: "📛";
+      font-size: 0.75rem;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: -5px;
+      right: 10px;
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-bottom: 5px solid rgba(229, 62, 62, 0.1);
+    }
+  }
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  Animation ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+// Goal : To add a horizontal "shaking" effect.
+//        It is typically used to visually indicate an error
+//        when the user enters incorrect or invalid data.
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+// Goal : To add a red glow effect around a field or element,
+//          with a gradual change in the intensity of the shading.
+//          to mark an error in a more "soft" but still noticeable way.
+
+@keyframes glowError {
+  from {
+    box-shadow: 0 0 5px rgba(239, 68, 68, 0.5);
+  }
+  to {
+    box-shadow: 0 0 15px rgba(239, 68, 68, 0.8);
+  }
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  Responsive ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+@media (max-width: 768px) {
+  div.webFormField {
+    label.webFormFieldLabel {
+      font-size: 0.9rem;
+    }
+
+    input.webFormFieldInput,
+    select.webFormFieldInput {
+      font-size: 0.9rem;
+      padding: 8px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  div.webFormField {
+    label.webFormFieldLabel {
+      font-size: 0.7rem;
+    }
+
+    input.webFormFieldInput,
+    select.webFormFieldInput {
+      font-size: 0.7rem;
+      padding: 6px;
+    }
+  }
+}
