@@ -7,7 +7,7 @@ The system interacts with a third-party provider to simulate real-life banking o
 ## Technologies Used ⚙️
 
 ### Frontend
-- **ReactJS** ⚛️
+- **ReactJS** ⚛️ **Vite**
 - **HTML5**, **CSS3**, **JavaScript** 🎨
 
 ### Backend
@@ -39,7 +39,7 @@ Navigate to the Frontend folder.
 Install dependencies:
 npm install
 Run the React development server:
-npm start
+npm run dev
 
 4. Database Configuration (SQL Server)
 Ensure you have SQL Server installed.
